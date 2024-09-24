@@ -1,0 +1,43 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 600,
+    "data": {
+      "url": "output/Existing_Green_Assets.json",  // 替换为您的GeoJSON文件路径
+      "format": {
+        "type": "geojson"
+      }
+    },
+    "layer": [
+      {
+        "mark": {
+          "type": "geoshape",
+          "fill": "#ddd",
+          "stroke": "white"
+        },
+        "projection": {
+          "type": "mercator"  // 地图投影方式，可以根据需要调整
+        }
+      },
+      {
+        "mark": {
+          "type": "geoshape",
+          "fill": "green",
+          "stroke": "black"
+        },
+        "encoding": {
+          "color": {
+            "field": "OS_CATEGOR",  // 用于分类的字段，例如绿地类型
+            "type": "nominal",
+            "scale": {
+              "scheme": "greenblue"  // 颜色方案，可根据需要修改
+            }
+          },
+          "tooltip": [
+            {"field": "PARK_NAME", "type": "nominal", "title": "Park Name"},
+            {"field": "SHAPE_Area", "type": "quantitative", "title": "Area"}
+          ]
+        }
+      }
+    ]
+  }
