@@ -3,6 +3,11 @@ const spec = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 800,
     "height": 600,
+    "title":{
+        "text": "Existing Green Assets in New South Wales",
+        "fontSize": 20,
+        "color": "green"
+    },
     "projection": {
         "type": "mercator"  // 地图投影方式
     },
